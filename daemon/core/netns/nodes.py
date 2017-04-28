@@ -21,7 +21,8 @@ from core.netns.vnet import LxBrNet, GreTapBridge
 from core.misc.ipaddr import IPv4Prefix, isIPv4Address, IPAddr
 from core.misc.utils import check_call, cmdresult, mutecall, maketuple
 from core.constants import BRCTL_BIN, IP_BIN, TC_BIN
-from core.coreobj import PyCoreNetIf, PyCoreObj
+from core.coreobj import PyCoreNetIf, PyCoreNet, PyCoreObj
+from core.emane.nodes import EmaneNode
 
 from core.api import coreapi
 from core.coreobj import PyCoreNode
