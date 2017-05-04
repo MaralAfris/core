@@ -1,0 +1,22 @@
+[MESSAGES CONTROL]
+
+# Enable the message, report, category or checker with the given id(s). You can
+# either give multiple identifier separated by comma (,) or put this option
+# multiple time.
+#enable=
+
+# Disable the message, report, category or checker with the given id(s). You
+# can either give multiple identifier separated by comma (,) or put this option
+# multiple time (only on the command line, not in the configuration file where
+# it should appear only once).
+#
+# Disabled list (see http://pylint-messages.wikidot.com/all-codes):
+# C0103: Invalid %s name "%s"
+# C0111: Missing %s docstring
+# E1129: Not Context Manager
+# W0102: Dangerous default value %s as argument
+# W0110: Map/filter on lambda could be replaced by comprehension
+# W0212: Access to a protected member %s of a client class
+# W0223: Method %r is abstract in class %r but is not overridden
+# W0703: Catching too general exception %s
+disable=C0103, C0111, E1129, W0102, W0110, W0212, W0223, W0703
