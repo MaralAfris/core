@@ -98,7 +98,7 @@ class NrlNhdp(NrlService):
 
         netifs = filter(lambda x: not getattr(x, 'control', False), \
                         node.netifs())
-        if len(netifs) > 0:
+        if netifs:
             interfacenames = map(lambda x: x.name, netifs)
             cmd += " -i "
             cmd += " -i ".join(interfacenames)
@@ -131,7 +131,7 @@ class NrlSmf(NrlService):
         servicenames = map(lambda x: x._name, services)
         netifs = filter(lambda x: not getattr(x, 'control', False), \
                         node.netifs())
-        if len(netifs) == 0:
+        if not netifs:
             return ()
 
         if "arouted" in servicenames:
@@ -139,7 +139,7 @@ class NrlSmf(NrlService):
             cmd += " tap %s_tap" % (node.name,)
             cmd += " unicast %s" % cls.firstipv4prefix(node, 24)
             cmd += " push lo,%s resequence on" % netifs[0].name
-        if len(netifs) > 0:
+        if netifs:
             if "NHDP" in servicenames:
                 comments += "# NHDP service is enabled\n"
                 cmd += " ecds "
@@ -175,7 +175,7 @@ class NrlOlsr(NrlService):
         cmd = cls._startup[0]
         # are multiple interfaces supported? No.
         netifs = list(node.netifs())
-        if len(netifs) > 0:
+        if netifs:
             ifc = netifs[0]
             cmd += " -i %s" % ifc.name
         cmd += " -l /var/log/nrlolsrd.log"
@@ -218,7 +218,7 @@ class NrlOlsrv2(NrlService):
 
         netifs = filter(lambda x: not getattr(x, 'control', False), \
                         node.netifs())
-        if len(netifs) > 0:
+        if netifs:
             interfacenames = map(lambda x: x.name, netifs)
             cmd += " -i "
             cmd += " -i ".join(interfacenames)
@@ -245,7 +245,7 @@ class OlsrOrg(NrlService):
         cmd = cls._startup[0]
         netifs = filter(lambda x: not getattr(x, 'control', False), \
                         node.netifs())
-        if len(netifs) > 0:
+        if netifs:
             interfacenames = map(lambda x: x.name, netifs)
             cmd += " -i "
             cmd += " -i ".join(interfacenames)
@@ -256,7 +256,7 @@ class OlsrOrg(NrlService):
     def generateconfig(cls, node, filename, services):
         ''' Generate a default olsrd config file to use the broadcast address of 255.255.255.255.
         '''
-        cfg = """\
+        cfg = r"""
 #
 # OLSR.org routing daemon config file
 # This file contains the usual options for an ETX based
@@ -611,10 +611,9 @@ class MgenActor(NrlService):
         comments = ""
         cmd = "mgenBasicActor.py -n %s -a 0.0.0.0" % (node.name)
 
-        servicenames = map(lambda x: x._name, services)
         netifs = filter(lambda x: not getattr(x, 'control', False), \
                         node.netifs())
-        if len(netifs) == 0:
+        if not netifs:
             return ()
 
         cfg += comments + cmd + " < /dev/null > /dev/null 2>&1 &\n\n"
