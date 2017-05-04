@@ -54,7 +54,7 @@ class Bird(CoreService):
            will have generatebirdifcconfig() and generatebirdconfig()
            hooks that are invoked here.
         '''
-        cfg = """\
+        cfg = r"""
 /* Main configuration file for BIRD. This is ony a template,
  * you will *need* to customize it according to your needs
  * Beware that only double quotes \'"\' are valid. No singles. */

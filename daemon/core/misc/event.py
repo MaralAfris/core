@@ -15,8 +15,7 @@ import heapq
 class EventLoop(object):
 
     class Timer(threading.Thread):
-        '''\
-        Based on threading.Timer but cancel() returns if the timer was
+        ''' Based on threading.Timer but cancel() returns if the timer was
         already running.
         '''
 
@@ -30,8 +29,7 @@ class EventLoop(object):
             self._running = threading.Lock()
 
         def cancel(self):
-            '''\
-            Stop the timer if it hasn't finished yet.  Return False if
+            ''' Stop the timer if it hasn't finished yet.  Return False if
             the timer was already running.
             '''
             locked = self._running.acquire(False)

@@ -51,7 +51,7 @@ class Ucarp(CoreService):
             ucarp_bin = node.session.cfg['ucarp_bin']
         except KeyError:
             ucarp_bin = "/usr/sbin/ucarp"
-        return """\
+        return r"""
 #!/bin/sh
 # Location of UCARP executable
 UCARP_EXEC=%s
@@ -118,7 +118,7 @@ ${UCARP_EXEC} -B ${UCARP_OPTS}
             ucarp_bin = node.session.cfg['ucarp_bin']
         except KeyError:
             ucarp_bin = "/usr/sbin/ucarp"
-        return """\
+        return r"""
 #!/bin/sh
 # Location of the UCARP config directory
 UCARP_CFGDIR=%s
@@ -138,7 +138,7 @@ ${UCARP_CFGDIR}/default.sh
             ucarp_bin = node.session.cfg['ucarp_bin']
         except KeyError:
             ucarp_bin = "/usr/sbin/ucarp"
-        return """\
+        return r"""
 #!/bin/bash
 
 # Should be invoked as "default-up.sh <dev> <ip>"
@@ -163,7 +163,7 @@ fi
             ucarp_bin = node.session.cfg['ucarp_bin']
         except KeyError:
             ucarp_bin = "/usr/sbin/ucarp"
-        return """\
+        return r"""
 #!/bin/bash
 
 # Should be invoked as "default-down.sh <dev> <ip>"
