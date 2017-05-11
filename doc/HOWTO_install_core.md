@@ -109,6 +109,9 @@ Core daemon performance alarms can be customized in
 - GitHub: [https://github.com/coreemu/core]()
 - Documentation: [https://downloads.pf.itd.nrl.navy.mil/docs/core/core-html/index.html]()
 
+- EMANE page: [https://www.nrl.navy.mil/itd/ncs/products/emane]()
+- EMANE github: [https://github.com/adjacentlink/emane]()
+
 Tutorials:
 - Install network services: [http://www.brianlinkletter.com/core-network-emulator-install-network-services/]()
 - Customize network services: [http://www.brianlinkletter.com/how-to-customize-core-network-emulator-services/]()
