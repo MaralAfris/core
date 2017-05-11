@@ -1,6 +1,14 @@
-How to install CORE on Ubuntu (tested on 17.04)
+# CORE (Common Open Research Emulator)
+## How to install and use it on Ubuntu (tested on 17.04): A fast hand-on guide <br/><br/>  
 
-# Install CORE from source
+## Table of contents
+- [Install CORE from source](#install-core-from-source)
+- [Use CORE](#use-core)
+- [Some links](#some-links)
+- [Useful tools](#useful-tools)
+<br/><br/>
+
+## Install CORE from source
 1. Get the source:
     - [https://github.com/coreemu/core]()
 
@@ -70,8 +78,33 @@ sudo apt-get install python-sphinx texlive-latex-base
 make html
 make latexpdf
 ```
+## Use CORE
+Simply start core-gui and start playing :)
 
-# Some links
+## Some useful information
+
+### Configuration files
+Configuration folders for core are located at:
+```
+/home/<username>/.core/
+/etc/core/
+```
+Have a close look at the /etc/core/core.conf file, don't forget to back it up first !
+```
+sudo cp /etc/core/core.conf /etc/core/core.conf.bak
+```
+
+If you plan to use Xen virtualization support, you can configure it in
+```
+/etc/core/xen.conf
+```
+
+Core daemon performance alarms can be customized in
+```
+/etc/core/perflogserver.conf
+``` 
+
+## Some links
 - Official page: [https://www.nrl.navy.mil/itd/ncs/products/core]()
 - GitHub: [https://github.com/coreemu/core]()
 - Documentation: [https://downloads.pf.itd.nrl.navy.mil/docs/core/core-html/index.html]()
@@ -81,16 +114,15 @@ Tutorials:
 - Customize network services: [http://www.brianlinkletter.com/how-to-customize-core-network-emulator-services/]()
 - CORE+docker: [http://www.finmars.co.uk/blog/9-core-and-docker-together-at-last]()
 
-# Useful tools
+## Useful tools
 
-## hping3
+### hping3
 Utility to spam the network ([http://0daysecurity.com/articles/hping3_examples.html]())
-### Install
+#### Install
 
 ```sudo apt-get install hping3```
 
-
-### DOS Land Attack 
+#### DOS Land Attack 
 ```hping3 -V -c PKY_CNT -d DATA_SIZE -S -w WIN_SIZE -p DEST_PORT -s SRC_PORT --flood --rand-source VICTIM_IP```
-### Smurf Attack
+#### Smurf Attack
 ```hping3 -1 --flood -a VICTIM_IP BROADCAST_ADDRESS```
