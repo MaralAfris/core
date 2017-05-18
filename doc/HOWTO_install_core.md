@@ -113,6 +113,7 @@ Core daemon performance alarms can be customized in
 - EMANE github: [https://github.com/adjacentlink/emane]()
 
 Tutorials:
+- First steps in CORE: [http://www.brianlinkletter.com/core-network-emulator-test-drive/]()
 - Install network services: [http://www.brianlinkletter.com/core-network-emulator-install-network-services/]()
 - Customize network services: [http://www.brianlinkletter.com/how-to-customize-core-network-emulator-services/]()
 - CORE+docker: [http://www.finmars.co.uk/blog/9-core-and-docker-together-at-last]()
